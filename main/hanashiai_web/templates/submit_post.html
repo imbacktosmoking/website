@@ -14,7 +14,7 @@
 
 <h1> Submit a post </h1> 
 <div class="mb-3">
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 
 {% csrf_token %}
 {{form.as_p}}
@@ -24,6 +24,13 @@
 
 </form>
 </div>
+
+<script> 
+
+var name = "{{user.id}}";
+document.getElementById("author").value
+= name;
+</script>
 
 
 </body>

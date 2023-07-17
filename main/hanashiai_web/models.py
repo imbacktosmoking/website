@@ -10,6 +10,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     date = models.DateTimeField(default=timezone.now) 
+    image = models.ImageField(null=True, blank=True, upload_to="images/" )
 
     def __str__(self):
         return self.title + ' | ' + str(self.author) 
@@ -23,7 +24,7 @@ class Comments(models.Model):
     author = models.CharField(max_length=255)
     body = models.TextField()
     date = models.DateTimeField(default=timezone.now)
-
+  
     def __str__(self):
         return str(self.author) 
     

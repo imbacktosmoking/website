@@ -4,12 +4,13 @@ from .models import Post, Comments
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post 
-        fields = ('title', 'author', 'date', 'body' )
+        fields = ('image', 'title', 'author', 'date', 'body' )
 
         widgets = {
 
             'title':forms.TextInput(attrs={'class': 'form-control'}),
-            'author':forms.Select(attrs={'class': 'form-control'}),
+            'author':forms.TextInput(attrs={'class': 'form-control', 'calue':'', 'id':'author', 'type':'hidden'}),
+            #'author':forms.Select(attrs={'class': 'form-control'}),
             'date':forms.TextInput(attrs={'class': 'form-control'}),
             'body':forms.Textarea(attrs={'class': 'form-control'}),
         }
@@ -19,13 +20,14 @@ class PostForm(forms.ModelForm):
 class Comments(forms.ModelForm):
     class Meta:
         model = Comments 
-        fields = ('post','author', 'date', 'body' )
+        fields = ( 'author','date', 'body' )
 
         widgets = {
 
-            'author':forms.TextInput(attrs={'class': 'form-control'}),
             'date':forms.TextInput(attrs={'class': 'form-control'}),
             'body':forms.Textarea(attrs={'class': 'form-control'}),
-            'post':forms.Select(attrs={'class': 'form-control'}),
+            'author':forms.TextInput(attrs={'class': 'form-control', 'value':'', 'id':'comments', 'type':'hidden'}),
+            
+
         }
 

@@ -9,7 +9,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">「話し合い、他の人と話す場所です！」</a>
+          <a class="navbar-brand" href="{% url 'homepage' %}">「話し合い、他の人と話す場所です！」</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -22,7 +22,14 @@
                     <a class="nav-link" href="{% url 'submit_post'%}"> Submit a post </a>
     
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout'%}"> logout </a>
+                      <a class="nav-link" href="{% url 'about' %}"> About </a> 
+
+
+
+                 <li class="nav-item">
+                          <a class="nav-link" href="{% url 'logout'%}"> logout </a>
+            
+                
         
 
                 {% else %}
@@ -36,11 +43,7 @@
 
 
                 {% endif %}
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'homepage'%}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}"> About </a>
+          
             
                 
 

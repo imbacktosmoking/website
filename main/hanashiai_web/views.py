@@ -28,7 +28,14 @@ class Post_comments(CreateView):
     model = Comments
     form_class = Comments
     template_name = "post_comments.html"
-    #fields = "__all__"
+
+
+    def form_valid(self, form):
+       form.instance.post_id = self.kwargs['pk']
+       return super().form_valid(form)
+
+
+  
 
 class About(ListView):
     model = Post
